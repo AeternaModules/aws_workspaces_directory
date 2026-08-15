@@ -4,7 +4,7 @@ output "workspaces_directories_id" {
 }
 output "workspaces_directories_active_directory_config" {
   description = "Map of active_directory_config values across all workspaces_directories, keyed the same as var.workspaces_directories"
-  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => v.active_directory_config if v.active_directory_config != null && length(v.active_directory_config) > 0 }
+  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => one(v.active_directory_config) if v.active_directory_config != null && length(v.active_directory_config) > 0 }
 }
 output "workspaces_directories_alias" {
   description = "Map of alias values across all workspaces_directories, keyed the same as var.workspaces_directories"
@@ -12,7 +12,7 @@ output "workspaces_directories_alias" {
 }
 output "workspaces_directories_certificate_based_auth_properties" {
   description = "Map of certificate_based_auth_properties values across all workspaces_directories, keyed the same as var.workspaces_directories"
-  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => v.certificate_based_auth_properties if v.certificate_based_auth_properties != null && length(v.certificate_based_auth_properties) > 0 }
+  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => one(v.certificate_based_auth_properties) if v.certificate_based_auth_properties != null && length(v.certificate_based_auth_properties) > 0 }
 }
 output "workspaces_directories_customer_user_name" {
   description = "Map of customer_user_name values across all workspaces_directories, keyed the same as var.workspaces_directories"
@@ -52,11 +52,11 @@ output "workspaces_directories_registration_code" {
 }
 output "workspaces_directories_saml_properties" {
   description = "Map of saml_properties values across all workspaces_directories, keyed the same as var.workspaces_directories"
-  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => v.saml_properties if v.saml_properties != null && length(v.saml_properties) > 0 }
+  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => one(v.saml_properties) if v.saml_properties != null && length(v.saml_properties) > 0 }
 }
 output "workspaces_directories_self_service_permissions" {
   description = "Map of self_service_permissions values across all workspaces_directories, keyed the same as var.workspaces_directories"
-  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => v.self_service_permissions if v.self_service_permissions != null && length(v.self_service_permissions) > 0 }
+  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => one(v.self_service_permissions) if v.self_service_permissions != null && length(v.self_service_permissions) > 0 }
 }
 output "workspaces_directories_subnet_ids" {
   description = "Map of subnet_ids values across all workspaces_directories, keyed the same as var.workspaces_directories"
@@ -80,11 +80,11 @@ output "workspaces_directories_user_identity_type" {
 }
 output "workspaces_directories_workspace_access_properties" {
   description = "Map of workspace_access_properties values across all workspaces_directories, keyed the same as var.workspaces_directories"
-  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => v.workspace_access_properties if v.workspace_access_properties != null && length(v.workspace_access_properties) > 0 }
+  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => one(v.workspace_access_properties) if v.workspace_access_properties != null && length(v.workspace_access_properties) > 0 }
 }
 output "workspaces_directories_workspace_creation_properties" {
   description = "Map of workspace_creation_properties values across all workspaces_directories, keyed the same as var.workspaces_directories"
-  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => v.workspace_creation_properties if v.workspace_creation_properties != null && length(v.workspace_creation_properties) > 0 }
+  value       = { for k, v in aws_workspaces_directory.workspaces_directories : k => one(v.workspace_creation_properties) if v.workspace_creation_properties != null && length(v.workspace_creation_properties) > 0 }
 }
 output "workspaces_directories_workspace_directory_description" {
   description = "Map of workspace_directory_description values across all workspaces_directories, keyed the same as var.workspaces_directories"
